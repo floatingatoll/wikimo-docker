@@ -1,7 +1,7 @@
 <?php
     $ENVIRONMENT = getenv('ENVIRONMENT', 'stage');
 
-    $Database_Name     = getenv('MYSQL_DATABASE', 'securitywiki');
+    $Database_Name     = getenv('MYSQL_DATABASE', 'wikimo');
     $Database_Password = getenv('MYSQL_PASSWORD');
     $Database_Server   = getenv('MYSQL_HOST');
     $Database_User     = getenv('MYSQL_USER', 'admin');

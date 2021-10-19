@@ -43,11 +43,11 @@ RUN set -eux; \
 	apt-get autoclean -y && \
 	rm -rf /var/lib/apt/lists/* /var/lib/{apt,dpkg,cache,log}/ /var/tmp/* /tmp/*.deb
 
-# Setup securitywiki config
+# Setup wikimo config
 RUN set -eux; \
-	mkdir -p /etc/securitywiki && \
-	chown www-data:www-data /etc/securitywiki && \
-	chmod 0744 /etc/securitywiki
+	mkdir -p /etc/wikimo && \
+	chown www-data:www-data /etc/wikimo && \
+	chmod 0744 /etc/wikimo
 
 WORKDIR /var/www/html
 
@@ -61,9 +61,9 @@ RUN git clone https://gerrit.wikimedia.org/r/mediawiki/skins/CologneBlue  --bran
 # Copy settings
 COPY --from=composer /bin/composer /bin/composer
 COPY build/mediawiki/LocalSettings.php /var/www/html/
-COPY build/mediawiki/securitywiki.php /etc/securitywiki/
+COPY build/mediawiki/wikimo.php /etc/wikimo/
 COPY build/mediawiki/health.php /var/www/html
-COPY build/apache/000-securitywiki.conf /etc/apache2/sites-enabled/000-default.conf
+COPY build/apache/000-wikimo.conf /etc/apache2/sites-enabled/000-default.conf
 COPY build/apache/openidc.conf /etc/apache2/conf-enabled/openidc.conf
 COPY build/apache/apache.sh /etc/profile.d/apache.sh
 COPY build/wiki_header_logo.gif /var/www/html/skins/wiki_header_logo.gif
@@ -72,9 +72,9 @@ COPY build/php.ini /usr/local/etc/php/conf.d/php.ini
 # Misc
 RUN set -eux; \
 	echo ". /etc/profile.d/apache.sh" >> /etc/apache2/envvars; \
-	chmod 0644 /etc/securitywiki/securitywiki.php; \
-	mkdir -p /data/securitywiki; \
-	chown -R www-data:www-data /var/www/html /data/securitywiki; \
+	chmod 0644 /etc/wikimo/wikimo.php; \
+	mkdir -p /data/wikimo; \
+	chown -R www-data:www-data /var/www/html /data/wikimo; \
 	a2enmod headers rewrite expires auth_openidc; \
 	composer self-update --1; \
 	composer install --no-dev --verbose;

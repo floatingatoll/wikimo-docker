@@ -1,6 +1,6 @@
 <?php
 
-require_once("/etc/securitywiki/securitywiki.php");
+require_once("/etc/wikimo/wikimo.php");
 
 $mysqli = new mysqli($Database_Server, $Database_User, $Database_Password, $Database_Name);
 if (!$mysqli) {

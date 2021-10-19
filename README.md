@@ -1,3 +1,4 @@
-# SecurityWiki Docker
+# Wikimo Docker
 
-Migrated from https://github.com/mozilla-it/nubis-securitywiki
+Migrated from https://github.com/mozilla/wiki.mozilla.org/nubis;
+Templated from https://github.com/mozilla-it/securitywiki-docker

@@ -15,7 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
-$config = "/etc/securitywiki/securitywiki.php";
+$config = "/etc/wikimo/wikimo.php";
 
 if(file_exists($config)){
   require_once($config);
@@ -24,7 +24,7 @@ if(file_exists($config)){
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename      = "Mozilla Security Wiki";
+$wgSitename      = "Mozilla Wiki";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -41,13 +41,13 @@ $wgUsePathInfo      = false;
 # Pick the correct canonical URL
 switch($ENVIRONMENT) {
   case "stage":
-    $wgServer           = "https://securitywiki.allizom.org";
+    $wgServer           = "https://wiki.allizom.org";
     break;
   case "prod":
-    $wgServer           = "https://securitywiki.mozilla.org";
+    $wgServer           = "https://wiki.mozilla.org";
     break;
   case "local":
-    $wgServer           = "https://securitywiki-127-0-0-1.nip.io";
+    $wgServer           = "https://wikimo-127-0-0-1.nip.io";
     break;
   default:
     $wgServer           = $SITE_URL;

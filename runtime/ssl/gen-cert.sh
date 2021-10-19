@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SSL_DIR=$(dirname "$0")
-BASENAME="securitywiki-127-0-0-1.nip.io"
+BASENAME="wikimo-127-0-0-1.nip.io"
 SSL_KEY="${SSL_DIR}/${BASENAME}-key.pem"
 SSL_CRT="${SSL_DIR}/${BASENAME}.pem"
 
